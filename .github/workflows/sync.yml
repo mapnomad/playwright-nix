@@ -1,0 +1,110 @@
+name: Sync
+on:
+  schedule:
+    - cron: "15 20 * * *"
+  workflow_dispatch:
+    inputs:
+      force_push:
+        description: "Push with override."
+        required: false
+        default: false
+        type: boolean
+concurrency:
+  group: sync
+  cancel-in-progress: false
+jobs:
+  sync-latest:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect-changes.outputs.changed }}
+      synced_sha: ${{ steps.detect-changes.outputs.sha }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          # Use the workflow token so the subsequent push is authenticated.
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Record starting revision
+        id: starting-revision
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: DeterminateSystems/determinate-nix-action@v3.22.3
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: cachix/cachix-action@v15
+        with:
+          name: playwright
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: true
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Synchronize lockfile to upstream latest
+        run: nix run .#sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit lockfile changes
+        run: |
+          if ! git diff --quiet packages.lock; then
+            git add packages.lock
+            git commit -m "chore(sync): update playwright tools and browser closures"
+          fi
+      - name: Detect changes
+        id: detect-changes
+        run: |
+          if [ "$(git rev-parse HEAD)" != "${{ steps.starting-revision.outputs.sha }}" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Push and pin latest browser closures
+        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          FORCE: ${{ inputs.force_push && '1' || '0' }}
+      - name: Push commits
+        if: steps.detect-changes.outputs.changed == 'true'
+        run: git push origin HEAD:main
+  cache-arm:
+    needs: sync-latest
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ needs.sync-latest.outputs.synced_sha }}
+      - uses: DeterminateSystems/determinate-nix-action@v3.22.3
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: cachix/cachix-action@v15
+        with:
+          name: playwright
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: true
+      - name: Push and pin latest browser closures
+        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          FORCE: ${{ inputs.force_push && '1' || '0' }}
+  cache-darwin:
+    needs: sync-latest
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ needs.sync-latest.outputs.synced_sha }}
+      - uses: DeterminateSystems/determinate-nix-action@v3.22.3
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: cachix/cachix-action@v15
+        with:
+          name: playwright
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: true
+      - name: Push and pin latest browser closures
+        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          FORCE: ${{ inputs.force_push && '1' || '0' }}

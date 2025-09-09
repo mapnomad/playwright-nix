@@ -1,0 +1,4 @@
+*.local*
+.env
+.direnv
+.pre-commit-config.yaml
