@@ -31,14 +31,46 @@ buildNpmPackage {
     #!/bin/sh
     export PLAYWRIGHT_BROWSERS_PATH="${browsers}"
     export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
-    for _arg in "\$@"; do
-      case "\$_arg" in
-        --browser|--browser=*)
-          exec "$out/bin/.playwright-cli-real" "\$@"
+
+    has_browser=0
+    wants_help=0
+    command=
+    skip_next=0
+
+    for arg in "\$@"; do
+      if [ "\$skip_next" = 1 ]; then
+        skip_next=0
+        continue
+      fi
+      case "\$arg" in
+        -s|--session)
+          skip_next=1
+          ;;
+        --browser)
+          has_browser=1
+          skip_next=1
+          ;;
+        --browser=*)
+          has_browser=1
+          ;;
+        --help|-h|--version)
+          wants_help=1
+          ;;
+        -*)
+          ;;
+        *)
+          if [ -z "\$command" ]; then
+            command="\$arg"
+          fi
           ;;
       esac
     done
-    exec "$out/bin/.playwright-cli-real" --browser chromium "\$@"
+
+    if [ "\$command" = open ] && [ "\$has_browser" = 0 ] && [ "\$wants_help" = 0 ]; then
+      exec "$out/bin/.playwright-cli-real" --browser chromium "\$@"
+    fi
+
+    exec "$out/bin/.playwright-cli-real" "\$@"
     WRAPPER
     chmod +x $out/bin/playwright-cli
   '';

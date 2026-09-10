@@ -81,6 +81,23 @@
             lib = playwrightLib;
           };
 
+          checks = {
+            playwright-cli-skills =
+              pkgs.runCommand "test-playwright-cli-skills"
+                {
+                  nativeBuildInputs = [ config.packages.playwright-cli ];
+                }
+                ''
+                  export HOME=$TMPDIR
+                  playwright-cli --help > /dev/null
+                  playwright-cli list > /dev/null
+                  playwright-cli install --skills=agents
+                  test -d .agents/skills/playwright-cli
+                  test -f .agents/skills/playwright-cli/SKILL.md
+                  touch $out
+                '';
+          };
+
           apps = {
             sync = {
               type = "app";
