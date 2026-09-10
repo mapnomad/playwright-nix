@@ -94,6 +94,11 @@
                   playwright-cli install --skills=agents
                   test -d .agents/skills/playwright-cli
                   test -f .agents/skills/playwright-cli/SKILL.md
+                  test -w .agents/skills/playwright-cli/SKILL.md
+                  test -w .agents/skills/playwright-cli/references
+                  # Test that re-running install over existing skills succeeds without EACCES
+                  playwright-cli install --skills=agents
+                  test -w .agents/skills/playwright-cli/SKILL.md
                   touch $out
                 '';
           };

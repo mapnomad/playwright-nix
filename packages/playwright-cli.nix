@@ -24,8 +24,60 @@ buildNpmPackage {
   inherit npmDepsHash;
   dontNpmBuild = true;
 
-  # Inject --browser chromium to fix NixOS failure (defaults to hardcoded chrome), unless passed by user.
+  # 1. Patch installSkills in coreBundle.js: files copied from Nix store are read-only (0444/0555).
+  #    Ensure existing destination files are made writable before cp (preventing EACCES on overwrite)
+  #    and make newly installed skills files writable (0644/0755) so users/agents can edit them.
+  # 2. Inject --browser chromium to fix NixOS failure (defaults to hardcoded chrome), unless passed by user.
   postFixup = ''
+    node -e '
+      const fs = require("fs");
+      const path = require("path");
+
+      function patchFile(file) {
+        if (!fs.existsSync(file)) return;
+        let content = fs.readFileSync(file, "utf8");
+        const pattern = /await\s+([\w.]+)\.cp\(sourceDir,\s*destDir,\s*\{\s*recursive:\s*true\s*\}\);/;
+        if (!pattern.test(content)) return;
+        const replacement = `await (async () => {
+          const _fs = require("fs");
+          const _path = require("path");
+          async function _makeWritable(p) {
+            try {
+              const stat = await _fs.promises.stat(p);
+              if (stat.isDirectory()) {
+                await _fs.promises.chmod(p, 0o755).catch(() => {});
+                const entries = await _fs.promises.readdir(p);
+                for (const entry of entries) {
+                  await _makeWritable(_path.join(p, entry));
+                }
+              } else {
+                await _fs.promises.chmod(p, 0o644).catch(() => {});
+              }
+            } catch {}
+          }
+          await _makeWritable(destDir);
+          await _fs.promises.cp(sourceDir, destDir, { recursive: true });
+          await _makeWritable(destDir);
+        })()`;
+        content = content.replace(pattern, replacement);
+        fs.writeFileSync(file, content, "utf8");
+      }
+
+      function findAndPatch(dir) {
+        if (!fs.existsSync(dir)) return;
+        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+          const full = path.join(dir, entry.name);
+          if (entry.isDirectory()) {
+            findAndPatch(full);
+          } else if (entry.name === "coreBundle.js") {
+            patchFile(full);
+          }
+        }
+      }
+
+      findAndPatch(process.argv[1]);
+    ' "$out"
+
     mv $out/bin/playwright-cli $out/bin/.playwright-cli-real
     cat > $out/bin/playwright-cli <<WRAPPER
     #!/bin/sh
