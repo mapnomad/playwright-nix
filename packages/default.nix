@@ -182,14 +182,14 @@ let
       toolData = lock.tools.camoufox;
       versions = builtins.attrNames toolData.versions;
       versionedPkgs = map (v: {
-        name = "camoufox-playwright-cli-${toAttr v}";
+        name = "camoufox-cli-${toAttr v}";
         value = mkCamoufoxPlaywrightCli (mkCamoufox v toolData.versions.${v});
       }) versions;
       latestPin = toolData.versions.${toolData.latest};
     in
     builtins.listToAttrs versionedPkgs
     // {
-      camoufox-playwright-cli = mkCamoufoxPlaywrightCli (mkCamoufox toolData.latest latestPin);
+      camoufox-cli = mkCamoufoxPlaywrightCli (mkCamoufox toolData.latest latestPin);
     };
 
   camoufoxOutputs =
@@ -201,11 +201,11 @@ let
       {
         inherit (buildCamoufox) camoufox;
         inherit (buildCamoufoxBrowsers) camoufox-browsers;
-        inherit (buildCamoufoxPlaywrightCli) camoufox-playwright-cli;
+        inherit (buildCamoufoxPlaywrightCli) camoufox-cli;
       }
       // builtins.removeAttrs buildCamoufox [ "camoufox" ]
       // builtins.removeAttrs buildCamoufoxBrowsers [ "camoufox-browsers" ]
-      // builtins.removeAttrs buildCamoufoxPlaywrightCli [ "camoufox-playwright-cli" ]
+      // builtins.removeAttrs buildCamoufoxPlaywrightCli [ "camoufox-cli" ]
     else
       { };
 in

@@ -43,15 +43,41 @@ stdenvNoCC.mkDerivation {
     chmod +x "$root/.playwright/node/darwin-x64/node"
     chmod +x "$root/.playwright/node/darwin-arm64/node"
 
-    makeWrapper ${lib.getExe powershell} "$out/bin/playwright-dotnet" \
-      --set PLAYWRIGHT_DRIVER_SEARCH_PATH "$root" \
-      --set PLAYWRIGHT_NODEJS_PATH ${lib.getExe nodejs} \
-      --set PLAYWRIGHT_BROWSERS_PATH ${browsers} \
-      --set PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD 1 \
-      --add-flags "-NoLogo" \
-      --add-flags "-NoProfile" \
-      --add-flags "-File" \
-      --add-flags "$root/playwright.ps1"
+    cat > "$out/bin/playwright-dotnet" <<WRAPPER
+    #!/bin/sh
+    export PLAYWRIGHT_DRIVER_SEARCH_PATH="$root"
+    export PLAYWRIGHT_NODEJS_PATH="${lib.getExe nodejs}"
+    export PLAYWRIGHT_BROWSERS_PATH="${browsers}"
+    export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
+    command=
+    wants_help=0
+
+    for arg in "\$@"; do
+      case "\$arg" in
+        --help|-h|--version)
+          wants_help=1
+          ;;
+        -*)
+          ;;
+        *)
+          if [ -z "\$command" ]; then
+            command="\$arg"
+          fi
+          ;;
+      esac
+    done
+
+    if [ "\$command" = "install" ] || [ "\$command" = "install-deps" ] || [ "\$command" = "install-browser" ] || [ "\$command" = "install-browsers" ]; then
+      if [ "\$wants_help" = 0 ]; then
+        echo "Browsers are pre-bundled in the Nix store (\$PLAYWRIGHT_BROWSERS_PATH). Runtime browser installation is disabled."
+        exit 0
+      fi
+    fi
+
+    exec "${lib.getExe powershell}" -NoLogo -NoProfile -File "$root/playwright.ps1" "\$@"
+    WRAPPER
+    chmod +x "$out/bin/playwright-dotnet"
 
     runHook postInstall
   '';

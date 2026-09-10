@@ -118,6 +118,13 @@ buildNpmPackage {
       esac
     done
 
+    if [ "\$command" = install-browser ] || [ "\$command" = install-browsers ]; then
+      if [ "\$wants_help" = 0 ]; then
+        echo "Browsers are pre-bundled in the Nix store (\$PLAYWRIGHT_BROWSERS_PATH). Runtime browser installation is disabled."
+        exit 0
+      fi
+    fi
+
     if [ "\$command" = open ] && [ "\$has_browser" = 0 ] && [ "\$wants_help" = 0 ]; then
       exec "$out/bin/.playwright-cli-real" --browser chromium "\$@"
     fi

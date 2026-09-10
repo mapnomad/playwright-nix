@@ -123,9 +123,40 @@ python3Packages.buildPythonPackage {
   '';
 
   postFixup = ''
-    wrapProgram $out/bin/playwright \
-      --set PLAYWRIGHT_BROWSERS_PATH ${browsers} \
-      --set PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD 1
+    mv $out/bin/playwright $out/bin/.playwright-real
+    cat > $out/bin/playwright <<WRAPPER
+    #!/bin/sh
+    export PLAYWRIGHT_BROWSERS_PATH="${browsers}"
+    export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
+    command=
+    wants_help=0
+
+    for arg in "\$@"; do
+      case "\$arg" in
+        --help|-h|--version)
+          wants_help=1
+          ;;
+        -*)
+          ;;
+        *)
+          if [ -z "\$command" ]; then
+            command="\$arg"
+          fi
+          ;;
+      esac
+    done
+
+    if [ "\$command" = "install" ] || [ "\$command" = "install-deps" ] || [ "\$command" = "install-browser" ] || [ "\$command" = "install-browsers" ]; then
+      if [ "\$wants_help" = 0 ]; then
+        echo "Browsers are pre-bundled in the Nix store (\$PLAYWRIGHT_BROWSERS_PATH). Runtime browser installation is disabled."
+        exit 0
+      fi
+    fi
+
+    exec "$out/bin/.playwright-real" "\$@"
+    WRAPPER
+    chmod +x $out/bin/playwright
   '';
 
   passthru = {

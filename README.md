@@ -28,6 +28,7 @@ Version attributes use underscores (`0.1.6` becomes `0_1_6`).
 - `playwright-cli` (latest)
 - `playwright-cli-0_1_6` (pinned)
 - `playwright-cli-browsers` (browser closure for derivations)
+- `camoufox-cli` (Camoufox Playwright CLI wrapper)
 
 ### Shell
 

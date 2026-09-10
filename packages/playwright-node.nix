@@ -50,11 +50,40 @@ stdenvNoCC.mkDerivation {
     done
 
     mkdir -p "$out/bin"
-    makeWrapper ${lib.getExe nodejs} "$out/bin/playwright-node" \
-      --set PLAYWRIGHT_BROWSERS_PATH ${browsers} \
-      --set PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD 1 \
-      --prefix NODE_PATH : "$out/lib/node_modules" \
-      --add-flags "$out/lib/node_modules/playwright/cli.js"
+    cat > "$out/bin/playwright-node" <<WRAPPER
+    #!/bin/sh
+    export PLAYWRIGHT_BROWSERS_PATH="${browsers}"
+    export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+    export NODE_PATH="$out/lib/node_modules''${NODE_PATH:+:\$NODE_PATH}"
+
+    command=
+    wants_help=0
+
+    for arg in "\$@"; do
+      case "\$arg" in
+        --help|-h|--version)
+          wants_help=1
+          ;;
+        -*)
+          ;;
+        *)
+          if [ -z "\$command" ]; then
+            command="\$arg"
+          fi
+          ;;
+      esac
+    done
+
+    if [ "\$command" = "install" ] || [ "\$command" = "install-deps" ] || [ "\$command" = "install-browser" ] || [ "\$command" = "install-browsers" ]; then
+      if [ "\$wants_help" = 0 ]; then
+        echo "Browsers are pre-bundled in the Nix store (\$PLAYWRIGHT_BROWSERS_PATH). Runtime browser installation is disabled."
+        exit 0
+      fi
+    fi
+
+    exec "${lib.getExe nodejs}" "$out/lib/node_modules/playwright/cli.js" "\$@"
+    WRAPPER
+    chmod +x "$out/bin/playwright-node"
 
     mkdir -p "$out/nix-support"
     cat > "$out/nix-support/setup-hook" <<EOF
