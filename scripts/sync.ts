@@ -178,6 +178,12 @@ const SUPPORTED_SYSTEMS = [
 ] as const;
 type System = (typeof SUPPORTED_SYSTEMS)[number];
 
+// Upstream moved linux-arm64 Chromium to Chrome for Testing builds at revision
+// 1243, and the legacy `builds/chromium/<rev>/chromium-*-linux-arm64.zip`
+// archives are absent for later revisions. Revision 1243 stays on the legacy
+// archive that `packages.lock` pins. Keep in sync with lib/browsers/chromium*.nix.
+const CFT_LINUX_ARM64_MIN_SOURCE_REVISION = 1244;
+
 function getBrowserUrl(
   browser: string,
   rev: string,
@@ -192,7 +198,10 @@ function getBrowserUrl(
       };
     } else if (sys === "aarch64-linux") {
       return {
-        url: `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-linux-arm64.zip`,
+        url:
+          Number(rev) >= CFT_LINUX_ARM64_MIN_SOURCE_REVISION
+            ? `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-linux-arm64.zip`
+            : `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-linux-arm64.zip`,
         stripRoot: true,
       };
     } else {
@@ -211,7 +220,10 @@ function getBrowserUrl(
       };
     } else if (sys === "aarch64-linux") {
       return {
-        url: `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-headless-shell-linux-arm64.zip`,
+        url:
+          Number(rev) >= CFT_LINUX_ARM64_MIN_SOURCE_REVISION
+            ? `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-headless-shell-linux-arm64.zip`
+            : `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-headless-shell-linux-arm64.zip`,
         stripRoot: false,
       };
     } else {
