@@ -6,6 +6,7 @@
  *   bun scripts/sync.ts                  # All tools to latest
  *   bun scripts/sync.ts <tool> [version] # Specific tool/version
  *   bun scripts/sync.ts --backfill <tool># Backfill releases
+ *   bun scripts/sync.ts migrate          # Record archive URLs in old entries
  */
 
 import { spawnSync } from "child_process";
@@ -44,6 +45,7 @@ interface Lockfile {
       {
         browserVersion?: string;
         hashes: Record<string, string>;
+        urls?: Record<string, string>;
       }
     >
   >;
@@ -178,60 +180,47 @@ const SUPPORTED_SYSTEMS = [
 ] as const;
 type System = (typeof SUPPORTED_SYSTEMS)[number];
 
-// Upstream moved linux-arm64 Chromium to Chrome for Testing builds at revision
-// 1243, and the legacy `builds/chromium/<rev>/chromium-*-linux-arm64.zip`
-// archives are absent for later revisions. Revision 1243 stays on the legacy
-// archive that `packages.lock` pins. Keep in sync with lib/browsers/chromium*.nix.
-const CFT_LINUX_ARM64_MIN_SOURCE_REVISION = 1244;
+// Upstream moved linux-arm64 Chromium from playwright's own builds to Chrome
+// for Testing (CFT) builds at this revision, in the same change that moved the
+// executable to `chrome-linux-arm64/` and `chrome-headless-shell-linux-arm64/`.
+const CHROMIUM_CFT_LINUX_ARM64_MIN_REVISION = 1243;
 
+const CFT_PLATFORMS: Record<System, string> = {
+  "x86_64-linux": "linux64",
+  "aarch64-linux": "linux-arm64",
+  "aarch64-darwin": "mac-arm64",
+};
+
+/**
+ * Returns the archive URL for a browser revision on a system.
+ * `cftLinuxArm64MinRevision` exists only to reproduce the URLs of lock entries
+ * that were recorded before `urls` was stored (see migrateLockfile).
+ */
 function getBrowserUrl(
   browser: string,
   rev: string,
   browserVersion: string | undefined,
   sys: System,
+  cftLinuxArm64MinRevision: number = CHROMIUM_CFT_LINUX_ARM64_MIN_REVISION,
 ): { url: string; stripRoot: boolean } {
-  if (browser === "chromium") {
-    if (sys === "x86_64-linux") {
+  if (browser === "chromium" || browser === "chromium-headless-shell") {
+    const archive = browser === "chromium" ? "chrome" : "chrome-headless-shell";
+    // fetchzip strips the root directory of Linux Chromium archives only.
+    const stripRoot = browser === "chromium" && sys !== "aarch64-darwin";
+    if (sys === "aarch64-linux" && Number(rev) < cftLinuxArm64MinRevision) {
       return {
-        url: `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-linux64.zip`,
-        stripRoot: true,
-      };
-    } else if (sys === "aarch64-linux") {
-      return {
-        url:
-          Number(rev) >= CFT_LINUX_ARM64_MIN_SOURCE_REVISION
-            ? `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-linux-arm64.zip`
-            : `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-linux-arm64.zip`,
-        stripRoot: true,
-      };
-    } else {
-      return {
-        url: `https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-mac-arm64.zip`,
-        stripRoot: false,
+        url: `https://cdn.playwright.dev/builds/chromium/${rev}/${browser}-linux-arm64.zip`,
+        stripRoot,
       };
     }
-  }
-
-  if (browser === "chromium-headless-shell") {
-    if (sys === "x86_64-linux") {
-      return {
-        url: `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-headless-shell-linux64.zip`,
-        stripRoot: false,
-      };
-    } else if (sys === "aarch64-linux") {
-      return {
-        url:
-          Number(rev) >= CFT_LINUX_ARM64_MIN_SOURCE_REVISION
-            ? `https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-headless-shell-linux-arm64.zip`
-            : `https://cdn.playwright.dev/builds/chromium/${rev}/chromium-headless-shell-linux-arm64.zip`,
-        stripRoot: false,
-      };
-    } else {
-      return {
-        url: `https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-headless-shell-mac-arm64.zip`,
-        stripRoot: false,
-      };
+    if (!browserVersion) {
+      die(`${browser}-${rev} has no browserVersion; cannot build its CFT URL`);
     }
+    const platform = CFT_PLATFORMS[sys];
+    return {
+      url: `https://cdn.playwright.dev/builds/cft/${browserVersion}/${platform}/${archive}-${platform}.zip`,
+      stripRoot,
+    };
   }
 
   if (browser === "firefox") {
@@ -250,6 +239,7 @@ function getBrowserUrl(
     const archSuffix = {
       "x86_64-linux": "ubuntu-22.04",
       "aarch64-linux": "ubuntu-22.04-arm64",
+      // Upstream maps the mac26-arm64 host platform to the mac-15-arm64 artifact.
       "aarch64-darwin": "mac-15-arm64",
     }[sys];
     return {
@@ -271,6 +261,51 @@ function getBrowserUrl(
   }
 
   throw new Error(`Unsupported browser: ${browser}`);
+}
+
+/**
+ * Records `urls` in entries locked before URLs were stored. Their hashes were
+ * computed with linux-arm64 Chromium always on the legacy builds.
+ */
+function migrateLockfile(lock: Lockfile) {
+  for (const [name, revisions] of Object.entries(lock.browsers)) {
+    for (const [rev, entry] of Object.entries(revisions)) {
+      if (entry.urls) continue;
+      entry.urls = {};
+      for (const sys of SUPPORTED_SYSTEMS) {
+        entry.urls[sys] = getBrowserUrl(
+          name,
+          rev,
+          entry.browserVersion,
+          sys,
+          Infinity,
+        ).url;
+      }
+    }
+  }
+}
+
+/**
+ * Re-pins every locked archive whose URL differs from the current upstream
+ * URL, e.g. after upstream moves a platform to another build.
+ */
+function reconcileBrowsers(lock: Lockfile) {
+  for (const [name, revisions] of Object.entries(lock.browsers)) {
+    for (const [rev, entry] of Object.entries(revisions)) {
+      for (const sys of SUPPORTED_SYSTEMS) {
+        const { url, stripRoot } = getBrowserUrl(
+          name,
+          rev,
+          entry.browserVersion,
+          sys,
+        );
+        if (entry.urls?.[sys] === url) continue;
+        log(`re-pinning ${name}-${rev} on ${sys}: ${url}`);
+        entry.hashes[sys] = prefetchFetchzip(url, stripRoot);
+        entry.urls = { ...entry.urls, [sys]: url };
+      }
+    }
+  }
 }
 
 function resolveGitSha(
@@ -391,6 +426,7 @@ async function ensureBrowsers(
       `new browser revision detected: ${name}-${revision}; prefetching hashes across platforms`,
     );
     const hashes: Record<string, string> = {};
+    const urls: Record<string, string> = {};
 
     for (const sys of SUPPORTED_SYSTEMS) {
       const { url, stripRoot } = getBrowserUrl(
@@ -400,9 +436,10 @@ async function ensureBrowsers(
         sys,
       );
       hashes[sys] = prefetchFetchzip(url, stripRoot);
+      urls[sys] = url;
     }
 
-    const entry: any = { hashes };
+    const entry: any = { hashes, urls };
     if (browserVersion) entry.browserVersion = browserVersion;
     lock.browsers[name][revision] = entry;
   }
@@ -757,9 +794,11 @@ async function syncCamoufox(lock: Lockfile = loadLockfile()) {
 async function main() {
   const args = process.argv.slice(2);
   const lock = loadLockfile();
+  migrateLockfile(lock);
 
   if (args.length === 0) {
     log("starting sync for all tools...");
+    reconcileBrowsers(lock);
     await syncCli(undefined, lock);
     await syncMcp(undefined, lock);
     await syncNode(undefined, lock);
@@ -793,9 +832,12 @@ async function main() {
     case "camoufox":
       await syncCamoufox(lock);
       break;
+    case "migrate":
+      // Only the lockfile migration above; needs no network.
+      break;
     default:
       die(
-        `Unknown tool: ${tool}. Expected cli|mcp|node|dotnet|python|camoufox`,
+        `Unknown tool: ${tool}. Expected cli|mcp|node|dotnet|python|camoufox|migrate`,
       );
   }
 

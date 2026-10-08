@@ -61,19 +61,12 @@
 {
   revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/webkit: unsupported system ${system}";
-  archSuffix =
-    {
-      x86_64-linux = "ubuntu-22.04";
-      aarch64-linux = "ubuntu-22.04-arm64";
-      # Upstream maps the mac26-arm64 host platform to the mac-15-arm64 WebKit artifact.
-      aarch64-darwin = "mac-15-arm64";
-    }
-    .${system} or throwSystem;
 
   libvpx' = libvpx.overrideAttrs (
     finalAttrs: _: {
@@ -146,7 +139,7 @@ if stdenv.hostPlatform.isDarwin then
     name = "playwright-webkit-${revision}";
 
     src = fetchzip {
-      url = "https://cdn.playwright.dev/builds/webkit/${revision}/webkit-${archSuffix}.zip";
+      url = urls.${system} or throwSystem;
       stripRoot = false;
       hash = hashes.${system} or throwSystem;
     };
@@ -160,7 +153,7 @@ else
     name = "playwright-webkit-${revision}";
 
     src = fetchzip {
-      url = "https://cdn.playwright.dev/builds/webkit/${revision}/webkit-${archSuffix}.zip";
+      url = urls.${system} or throwSystem;
       stripRoot = false;
       hash = hashes.${system} or throwSystem;
     };

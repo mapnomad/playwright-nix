@@ -26,35 +26,18 @@
   nss,
 }:
 {
-  browserVersion,
   revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/chromium-headless-shell: unsupported system ${system}";
 
-  # Upstream moved linux-arm64 to Chrome for Testing builds and layout at
-  # revision 1243. Revision 1243 is pinned to the legacy playwright archive,
-  # because the CFT archive was not yet in use when it was locked.
-  # Keep in sync with scripts/sync.ts.
-  rev = lib.toInt revision;
-  cftArm64Source = rev >= 1244;
-  legacyArm64WithCftLayout = system == "aarch64-linux" && rev >= 1243 && !cftArm64Source;
-
   src = fetchzip {
-    url =
-      {
-        x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-headless-shell-linux64.zip";
-        aarch64-linux =
-          if cftArm64Source then
-            "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-headless-shell-linux-arm64.zip"
-          else
-            "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-headless-shell-linux-arm64.zip";
-        aarch64-darwin = "https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-headless-shell-mac-arm64.zip";
-      }
-      .${system} or throwSystem;
+    # scripts/sync.ts records the archive URL per system in packages.lock.
+    url = urls.${system} or throwSystem;
     stripRoot = false;
     hash = hashes.${system} or throwSystem;
   };
@@ -87,17 +70,12 @@ stdenv.mkDerivation {
 
   # Layout notes (playwright-core/src/server/registry/index.ts):
   #   linux-x64:   chrome-headless-shell-linux64/chrome-headless-shell
-  #   linux-arm64: chrome-headless-shell-linux-arm64/chrome-headless-shell
-  #                (chrome-linux/headless_shell before 1243)
+  #   linux-arm64: chrome-headless-shell-linux-arm64/chrome-headless-shell (CFT, revision >= 1243)
+  #                chrome-linux/headless_shell (legacy build, revision < 1243)
   #   mac-arm64:   chrome-headless-shell-mac-arm64/chrome-headless-shell
   # The zips already contain the expected top-level directory (stripRoot=false),
-  # so they can be copied directly. The legacy archive of revision 1243 is
-  # moved into the CFT layout.
+  # so they can be copied directly.
   buildPhase = ''
     cp -R . $out
-  ''
-  + lib.optionalString legacyArm64WithCftLayout ''
-    mv $out/chrome-linux $out/chrome-headless-shell-linux-arm64
-    ln -s headless_shell $out/chrome-headless-shell-linux-arm64/chrome-headless-shell
   '';
 }

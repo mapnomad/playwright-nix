@@ -41,56 +41,35 @@
   libxcb,
 }:
 {
-  browserVersion,
   revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/chromium: unsupported system ${system}";
 
-  # Upstream moved linux-arm64 to Chrome for Testing builds and layout at
-  # revision 1243. Revision 1243 is pinned to the legacy playwright archive,
-  # because the CFT archive was not yet in use when it was locked.
-  # Keep in sync with scripts/sync.ts.
-  rev = lib.toInt revision;
-  cftArm64Source = rev >= 1244;
-  cftArm64Layout = rev >= 1243;
+  # scripts/sync.ts records the archive URL per system in packages.lock.
+  url = urls.${system} or throwSystem;
 
-  # The CDN URL structure depends on the platform:
-  #   x86_64-linux uses Google's chrome-for-testing (CFT) path, keyed by browserVersion.
-  #   aarch64-linux uses CFT, or playwright's own builds keyed by revision before 1244.
-  #   aarch64-darwin uses CFT with the macOS arm64 archive layout.
   src = fetchzip {
     stripRoot = !stdenv.hostPlatform.isDarwin;
-    url =
-      {
-        x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-linux64.zip";
-        aarch64-linux =
-          if cftArm64Source then
-            "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-linux-arm64.zip"
-          else
-            "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-linux-arm64.zip";
-        aarch64-darwin = "https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-mac-arm64.zip";
-      }
-      .${system} or throwSystem;
+    inherit url;
     hash = hashes.${system} or throwSystem;
   };
 
-  # Playwright expects this directory name inside the browser dir, and launches this binary.
-  # See playwright-core/src/server/registry/index.ts:
+  # Playwright expects the archive's root directory inside the browser dir, and
+  # launches `<root>/chrome`. See playwright-core/src/server/registry/index.ts:
   #   EXECUTABLE_PATHS.chromium = {
   #     'linux-x64': ['chrome-linux64', 'chrome'],
-  #     'linux-arm64': ['chrome-linux-arm64', 'chrome'],  // ['chrome-linux', 'chrome'] before 1243
+  #     'linux-arm64': ['chrome-linux-arm64', 'chrome'],  // CFT builds, revision >= 1243
   #   }
+  # The legacy linux-arm64 archive (`chromium-linux-arm64.zip`, revision < 1243)
+  # has the root `chrome-linux`; CFT archives are named after their root.
+  archive = baseNameOf url;
   layoutDir =
-    {
-      x86_64-linux = "chrome-linux64";
-      aarch64-linux = if cftArm64Layout then "chrome-linux-arm64" else "chrome-linux";
-      aarch64-darwin = "chrome-mac-arm64";
-    }
-    .${system} or throwSystem;
+    if archive == "chromium-linux-arm64.zip" then "chrome-linux" else lib.removeSuffix ".zip" archive;
 in
 stdenv.mkDerivation {
   name = "playwright-chromium-${revision}";

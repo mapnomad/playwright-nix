@@ -3,14 +3,15 @@
 # Creates a linkFarm matching the `${name}-${revision}` layout expected by
 # PLAYWRIGHT_BROWSERS_PATH (e.g., `chromium_headless_shell-<rev>`).
 #
-# Input shape (omitted entries are skipped):
+# Input shape (omitted entries are skipped). `hashes` and `urls` are keyed by
+# system, as in the `browsers` entries of packages.lock:
 #
 #   {
-#     chromium                = { revision = "1219"; browserVersion = "147.0.7727.49"; hash = "sha256-..."; };
-#     chromium-headless-shell = { revision = "1219"; browserVersion = "147.0.7727.49"; hash = "sha256-..."; };
-#     firefox                 = { revision = "1511"; hash = "sha256-..."; };
-#     webkit                  = { revision = "2276"; hash = "sha256-..."; };
-#     ffmpeg                  = { revision = "1011"; hash = "sha256-..."; };
+#     chromium                = { revision = "1219"; browserVersion = "147.0.7727.49"; hashes = { ... }; urls = { ... }; };
+#     chromium-headless-shell = { revision = "1219"; browserVersion = "147.0.7727.49"; hashes = { ... }; urls = { ... }; };
+#     firefox                 = { revision = "1511"; hashes = { ... }; urls = { ... }; };
+#     webkit                  = { revision = "2276"; hashes = { ... }; urls = { ... }; };
+#     ffmpeg                  = { revision = "1011"; hashes = { ... }; urls = { ... }; };
 #   }
 {
   lib,

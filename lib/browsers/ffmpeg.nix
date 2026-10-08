@@ -10,23 +10,16 @@
   fetchzip,
 }:
 {
-  revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/ffmpeg: unsupported system ${system}";
-  archSuffix =
-    {
-      x86_64-linux = "linux";
-      aarch64-linux = "linux-arm64";
-      aarch64-darwin = "mac-arm64";
-    }
-    .${system} or throwSystem;
 in
 fetchzip {
-  url = "https://cdn.playwright.dev/builds/ffmpeg/${revision}/ffmpeg-${archSuffix}.zip";
+  url = urls.${system} or throwSystem;
   stripRoot = false;
   hash = hashes.${system} or throwSystem;
 }

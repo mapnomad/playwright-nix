@@ -459,7 +459,12 @@
           "aarch64-linux": "sha256-9DFLCPuc9WZjYLzlRW+Df2pb+mViPK3/IOkkUozELsw=",
           "aarch64-darwin": "sha256-qXdgHeBS5IFIa4hZVmjq0+31v/uDPXHyc4aH7Wn2E7E="
         },
-        "browserVersion": "145.0.7632.6"
+        "browserVersion": "145.0.7632.6",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/145.0.7632.6/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1208/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/145.0.7632.6/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1217": {
         "hashes": {
@@ -467,7 +472,12 @@
           "aarch64-linux": "sha256-jsesQ6juzMPQzmn0Ygb8hmpxCeLHJVBL89qto5yuh5s=",
           "aarch64-darwin": "sha256-n3JLK+hJwzPihC2qSHrSCYPz3jonZNz7GMgXiPBLaS0="
         },
-        "browserVersion": "147.0.7727.15"
+        "browserVersion": "147.0.7727.15",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/147.0.7727.15/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1217/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/147.0.7727.15/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1219": {
         "hashes": {
@@ -475,7 +485,12 @@
           "aarch64-linux": "sha256-jsesQ6juzMPQzmn0Ygb8hmpxCeLHJVBL89qto5yuh5s=",
           "aarch64-darwin": "sha256-jmtzueGUZpf0PhscVoObGhW6p+VaOyblhmTTgjmpfSI="
         },
-        "browserVersion": "147.0.7727.49"
+        "browserVersion": "147.0.7727.49",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/147.0.7727.49/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1219/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/147.0.7727.49/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1222": {
         "hashes": {
@@ -483,7 +498,12 @@
           "aarch64-linux": "sha256-E7Nmz9fET0kXNf7ooaUBDHtDBWTGq4JDKKUbo/UfA+c=",
           "aarch64-darwin": "sha256-1rQV8ki8zqYTjWyTluImYcfTVX0wyY5Qakt0QC63YRw="
         },
-        "browserVersion": "148.0.7778.56"
+        "browserVersion": "148.0.7778.56",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/148.0.7778.56/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1222/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/148.0.7778.56/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1223": {
         "hashes": {
@@ -491,7 +511,12 @@
           "aarch64-linux": "sha256-E7Nmz9fET0kXNf7ooaUBDHtDBWTGq4JDKKUbo/UfA+c=",
           "aarch64-darwin": "sha256-T0rVp4M/ymrJtNVtF0RDmIOT6kC3/tRkzPYrwvFbEQY="
         },
-        "browserVersion": "148.0.7778.96"
+        "browserVersion": "148.0.7778.96",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/148.0.7778.96/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1223/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/148.0.7778.96/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1224": {
         "hashes": {
@@ -499,7 +524,12 @@
           "aarch64-linux": "sha256-jVh4di2WaHp/AwXqVgajyPnTUtao6UHECHSzf5jPLYY=",
           "aarch64-darwin": "sha256-HcDfDb0hFsyHdwUogIJBWwfvNZmGGBuTMQyHHXclVmI="
         },
-        "browserVersion": "149.0.7827.3"
+        "browserVersion": "149.0.7827.3",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/149.0.7827.3/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1224/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/149.0.7827.3/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1228": {
         "hashes": {
@@ -507,7 +537,12 @@
           "aarch64-linux": "sha256-5vNF1/utXGctixYJj/0qvi6X0qklIG9XCcet94feQoA=",
           "aarch64-darwin": "sha256-aJbvZQ1hY0FfDC+ZktfW2yNW3nwc0kh/P30+n/cmLf0="
         },
-        "browserVersion": "149.0.7827.55"
+        "browserVersion": "149.0.7827.55",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/149.0.7827.55/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1228/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/149.0.7827.55/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1229": {
         "hashes": {
@@ -515,7 +550,12 @@
           "aarch64-linux": "sha256-w2K71BSK0ZHP8C082u6PtT2TN0FTVFNjAYw4r1GG5FY=",
           "aarch64-darwin": "sha256-3shNcVRki3IDmmtpTVPo1f2xirupicXn0jH4Qp/Gucc="
         },
-        "browserVersion": "150.0.7871.24"
+        "browserVersion": "150.0.7871.24",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/150.0.7871.24/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1229/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/150.0.7871.24/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1232": {
         "hashes": {
@@ -523,7 +563,12 @@
           "aarch64-linux": "sha256-Nqqr/YQ9ZIgjSCVIPHpFZ/4RI1PNN+o76p1dt1RfhO4=",
           "aarch64-darwin": "sha256-HbzIqHiT6zqufV9jgn59bFUzAhXnVCi1dbILSOq9sSw="
         },
-        "browserVersion": "151.0.7922.10"
+        "browserVersion": "151.0.7922.10",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/151.0.7922.10/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1232/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/151.0.7922.10/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1234": {
         "hashes": {
@@ -531,7 +576,12 @@
           "aarch64-linux": "sha256-53xm/L3QYH22AZ8K/5cKg1gLewKv7s3lTDmXlHw4KDg=",
           "aarch64-darwin": "sha256-ugo4gRST53YA1uaLXfwnFhFdouShtUAGFnf2ZKbg5jI="
         },
-        "browserVersion": "151.0.7922.34"
+        "browserVersion": "151.0.7922.34",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1234/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1237": {
         "hashes": {
@@ -539,7 +589,12 @@
           "aarch64-linux": "sha256-yB1qV5ODSCMEpUp7kqgttVu7KiGKxamwHJ5GHxxBxiM=",
           "aarch64-darwin": "sha256-7ovtvjLP7YosQwxUP87hJbaGR8HveMMple5AOQSiAPA="
         },
-        "browserVersion": "152.0.7977.8"
+        "browserVersion": "152.0.7977.8",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/152.0.7977.8/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1237/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/152.0.7977.8/mac-arm64/chrome-mac-arm64.zip"
+        }
       },
       "1243": {
         "hashes": {
@@ -547,7 +602,12 @@
           "aarch64-linux": "sha256-2JRLR1h189ApHRu77O6YmigQpqO2rXu3InM/qrzwX/c=",
           "aarch64-darwin": "sha256-Zm7aHjwXL0kbucBiNoWxBM6rFdY0UmVIwcr/f8V31G8="
         },
-        "browserVersion": "153.0.8010.12"
+        "browserVersion": "153.0.8010.12",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1243/chromium-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/mac-arm64/chrome-mac-arm64.zip"
+        }
       }
     },
     "chromium-headless-shell": {
@@ -557,7 +617,12 @@
           "aarch64-linux": "sha256-jckH5+eGJ4BhH1NAa5LIgf3/salKLAHW9XUOo5gob4c=",
           "aarch64-darwin": "sha256-45DjMIu0t7IEYdXOmIqpV/1/MKdEfx/8T7DWagh6Zhc="
         },
-        "browserVersion": "145.0.7632.6"
+        "browserVersion": "145.0.7632.6",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/145.0.7632.6/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1208/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/145.0.7632.6/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1217": {
         "hashes": {
@@ -565,7 +630,12 @@
           "aarch64-linux": "sha256-s2IIjSY5t9AtT05dUS0mp4fPlaixND9+Cg0+0S8Kkx8=",
           "aarch64-darwin": "sha256-67ekk37uq5ITq9ZvwPTZhhqEgQY17g/3KJ/vnqZz3h0="
         },
-        "browserVersion": "147.0.7727.15"
+        "browserVersion": "147.0.7727.15",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/147.0.7727.15/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1217/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/147.0.7727.15/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1219": {
         "hashes": {
@@ -573,7 +643,12 @@
           "aarch64-linux": "sha256-s2IIjSY5t9AtT05dUS0mp4fPlaixND9+Cg0+0S8Kkx8=",
           "aarch64-darwin": "sha256-8JLUCkJJzaqq2TvzVqDGLcT+647Uv+oMdNbaEpcFFoA="
         },
-        "browserVersion": "147.0.7727.49"
+        "browserVersion": "147.0.7727.49",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/147.0.7727.49/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1219/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/147.0.7727.49/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1222": {
         "hashes": {
@@ -581,7 +656,12 @@
           "aarch64-linux": "sha256-veEBmsivFDrG1bArQ780+gMbsoT1Zv4VLcIPpgn4M/I=",
           "aarch64-darwin": "sha256-X5DxrAF516TuApmN3Mp9cskCEJX3FuolvISx3Twv6vw="
         },
-        "browserVersion": "148.0.7778.56"
+        "browserVersion": "148.0.7778.56",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/148.0.7778.56/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1222/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/148.0.7778.56/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1223": {
         "hashes": {
@@ -589,7 +669,12 @@
           "aarch64-linux": "sha256-veEBmsivFDrG1bArQ780+gMbsoT1Zv4VLcIPpgn4M/I=",
           "aarch64-darwin": "sha256-7laJtPAiy6pYAxCNBxRYk+FmriXemmLW8UYteEdVrd0="
         },
-        "browserVersion": "148.0.7778.96"
+        "browserVersion": "148.0.7778.96",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/148.0.7778.96/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1223/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/148.0.7778.96/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1224": {
         "hashes": {
@@ -597,7 +682,12 @@
           "aarch64-linux": "sha256-SkGRUcFHEqcnTx6tfqzOVAvQHVXKdB2Hk1pjGEicaWA=",
           "aarch64-darwin": "sha256-6qNVIL+NoV9c66NVbXiRwjwUXCwd1xSQSztDGOCel38="
         },
-        "browserVersion": "149.0.7827.3"
+        "browserVersion": "149.0.7827.3",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/149.0.7827.3/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1224/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/149.0.7827.3/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1228": {
         "hashes": {
@@ -605,7 +695,12 @@
           "aarch64-linux": "sha256-d9Qr3q4GjtUp2ZVFSq+M2Ap++WKaEscRzEkk4JwXL/E=",
           "aarch64-darwin": "sha256-qWrMOreqTOFhmFBROlXIPXrM3wqNT7iJJwpelVFke6I="
         },
-        "browserVersion": "149.0.7827.55"
+        "browserVersion": "149.0.7827.55",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/149.0.7827.55/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1228/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/149.0.7827.55/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1229": {
         "hashes": {
@@ -613,7 +708,12 @@
           "aarch64-linux": "sha256-MPFkmJ6e9FgZ2VPpMrGin2pZynRhzA8LEYTtlgHfsfc=",
           "aarch64-darwin": "sha256-q5+sBxuB7KavpU9R/wZ6q/P1WzdqG83QW3n6FfjoAA8="
         },
-        "browserVersion": "150.0.7871.24"
+        "browserVersion": "150.0.7871.24",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/150.0.7871.24/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1229/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/150.0.7871.24/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1232": {
         "hashes": {
@@ -621,7 +721,12 @@
           "aarch64-linux": "sha256-Cfus+Mv3DIJ4AcYsW5yh/DDI3gkcC2TmkeMF6xk1P4Y=",
           "aarch64-darwin": "sha256-C54mty3GzCZU6LARn2UTv35Iut00TiH3u3dnzoB+veQ="
         },
-        "browserVersion": "151.0.7922.10"
+        "browserVersion": "151.0.7922.10",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/151.0.7922.10/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1232/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/151.0.7922.10/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1234": {
         "hashes": {
@@ -629,7 +734,12 @@
           "aarch64-linux": "sha256-DoZf+pKXW0Oj2e8vtGDDSViJ0SX8PkYE1Q0LJs53IWg=",
           "aarch64-darwin": "sha256-5VQESywHZKhqc7Fhq/jqNF+yXl90F3+i9nPzBHyJV8k="
         },
-        "browserVersion": "151.0.7922.34"
+        "browserVersion": "151.0.7922.34",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1234/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1237": {
         "hashes": {
@@ -637,7 +747,12 @@
           "aarch64-linux": "sha256-/vP9JW1GwgJur1tUO8stYd2BsH3B8ATnhpnSfWp90+I=",
           "aarch64-darwin": "sha256-Ija4tFqNsdlyv29Dc4HG3LStAdTv/isqIBC9L6SE+IM="
         },
-        "browserVersion": "152.0.7977.8"
+        "browserVersion": "152.0.7977.8",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/152.0.7977.8/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1237/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/152.0.7977.8/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       },
       "1243": {
         "hashes": {
@@ -645,7 +760,12 @@
           "aarch64-linux": "sha256-FiK+GGxiDHjwj/JeOh4FZPYYclogjAxfEDcpJ4Fjoqc=",
           "aarch64-darwin": "sha256-Elbpy5UDVndRzWRi8Nb391AhAAYl55PJ/3Fxz/RI/4I="
         },
-        "browserVersion": "153.0.8010.12"
+        "browserVersion": "153.0.8010.12",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1243/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        }
       }
     },
     "firefox": {
@@ -655,7 +775,12 @@
           "aarch64-linux": "sha256-peP032z4GOoUp1WAszvzyeXnROw6RwRffG+KRe1Qf9k=",
           "aarch64-darwin": "sha256-ZFRmtlNrzrjB3ELXmGC67XO1IhfWsWZ7rXaUQ6If65s="
         },
-        "browserVersion": "146.0.1"
+        "browserVersion": "146.0.1",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1509/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1509/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1509/firefox-mac-arm64.zip"
+        }
       },
       "1511": {
         "hashes": {
@@ -663,7 +788,12 @@
           "aarch64-linux": "sha256-7+C3fsIRVo4pfFOPgN7gD0P+fxC6juTMaTzjthq+mno=",
           "aarch64-darwin": "sha256-WEYhmqGhGvO47i/OICJgXyqj64Wt52juJDEe7nD7HXU="
         },
-        "browserVersion": "148.0.2"
+        "browserVersion": "148.0.2",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1511/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1511/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1511/firefox-mac-arm64.zip"
+        }
       },
       "1515": {
         "hashes": {
@@ -671,7 +801,12 @@
           "aarch64-linux": "sha256-pLOmdM2D4eKmV0v+sjk0O/vSO96oUFuMfruy0uKyp3c=",
           "aarch64-darwin": "sha256-xAg8VpJeIEfykDk2sM8n7kE/mxhDfLFAvaLW+fcxno4="
         },
-        "browserVersion": "149.0"
+        "browserVersion": "149.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1515/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1515/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1515/firefox-mac-arm64.zip"
+        }
       },
       "1522": {
         "hashes": {
@@ -679,7 +814,12 @@
           "aarch64-linux": "sha256-FdWY9mn9tBwqcmWNgEQ9GRZXXUsOZDr5UkfmSmafUek=",
           "aarch64-darwin": "sha256-lVNFp20v+zBC3Up9ElhWh8C8ptEUqCHEsfQiuPp3lVM="
         },
-        "browserVersion": "150.0.2"
+        "browserVersion": "150.0.2",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1522/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1522/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1522/firefox-mac-arm64.zip"
+        }
       },
       "1532": {
         "hashes": {
@@ -687,7 +827,12 @@
           "aarch64-linux": "sha256-fcZ6hf4DY5D+54WfoJERiLdsrUjxLu3gnBVk3yhWpag=",
           "aarch64-darwin": "sha256-Opwa5SbuAaXf2A+qrldHc6BkhRaOzzl0dy7R4vodG5w="
         },
-        "browserVersion": "151.0"
+        "browserVersion": "151.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1532/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1532/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1532/firefox-mac-arm64.zip"
+        }
       },
       "1533": {
         "hashes": {
@@ -695,7 +840,12 @@
           "aarch64-linux": "sha256-TjeeFq3nfbNDHziIU2UaRy/zazRsYwBY6P4BVqEWSt4=",
           "aarch64-darwin": "sha256-8G/IGTEP/wvxgE7nr0K/cN2zbHQEIbfe4RM/SQ2QemE="
         },
-        "browserVersion": "151.0"
+        "browserVersion": "151.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1533/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1533/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1533/firefox-mac-arm64.zip"
+        }
       },
       "1534": {
         "hashes": {
@@ -703,7 +853,12 @@
           "aarch64-linux": "sha256-XAIZgQ7AbFBrMaSCIodl+f6/7Up2kNCEaj2JCb7Pguo=",
           "aarch64-darwin": "sha256-dg1K/knhOoKLsNnpUDFNXWthQmNR4UmVY3VOj1jWG+E="
         },
-        "browserVersion": "152.0.4"
+        "browserVersion": "152.0.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1534/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1534/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1534/firefox-mac-arm64.zip"
+        }
       },
       "1538": {
         "hashes": {
@@ -711,7 +866,12 @@
           "aarch64-linux": "sha256-QKnxtxAzgTM/THeSePx+NXGUU/TUhcGFGeI7PS+/+WU=",
           "aarch64-darwin": "sha256-E7/Kbvjg1dcWwSe/07hMR+W6NR0JHoAPxp1e+SncQYs="
         },
-        "browserVersion": "153.0"
+        "browserVersion": "153.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1538/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1538/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1538/firefox-mac-arm64.zip"
+        }
       },
       "1539": {
         "hashes": {
@@ -719,7 +879,12 @@
           "aarch64-linux": "sha256-UQ96XkSGcqx0fqOdEJbCy7FtA+GJsrgSTehBsj2RROI=",
           "aarch64-darwin": "sha256-89PgWqwVbzH4BnpV5X+ZoQ7TvTcZmwCTmgMdK8quqe8="
         },
-        "browserVersion": "153.0"
+        "browserVersion": "153.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1539/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1539/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1539/firefox-mac-arm64.zip"
+        }
       },
       "1542": {
         "hashes": {
@@ -727,7 +892,12 @@
           "aarch64-linux": "sha256-I7hVCEBNjHzsQMrTUZP+74aMnQfx4je7S8nT4T4wwVw=",
           "aarch64-darwin": "sha256-1xGrEI8rurB4u3+XkUC2CwohP66tamjCVZiJMC+3mTQ="
         },
-        "browserVersion": "155.0"
+        "browserVersion": "155.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1542/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1542/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1542/firefox-mac-arm64.zip"
+        }
       },
       "1543": {
         "hashes": {
@@ -735,7 +905,12 @@
           "aarch64-linux": "sha256-8FPCRHi4eoL8d466bpMfwS1bZqqLpHu7ERGcMsVF0Wo=",
           "aarch64-darwin": "sha256-mFCMrL5PMX5C0Ob/tKKfbZfZJwF5QDM0rhS7v/P3IUw="
         },
-        "browserVersion": "155.0"
+        "browserVersion": "155.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1543/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1543/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1543/firefox-mac-arm64.zip"
+        }
       }
     },
     "webkit": {
@@ -745,7 +920,12 @@
           "aarch64-linux": "sha256-sOtPdOBmPLqApGGVhgH51OW3aoTv1Y40RfCSax7CyC4=",
           "aarch64-darwin": "sha256-suXPCuXLMz3xoFxE5+Yjd9OXxLfNDDJiU6O1Ic0PsOI="
         },
-        "browserVersion": "26.0"
+        "browserVersion": "26.0",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2248/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2248/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2248/webkit-mac-15-arm64.zip"
+        }
       },
       "2272": {
         "hashes": {
@@ -753,7 +933,12 @@
           "aarch64-linux": "sha256-tQqaU1TuIfAohpMibWu9TVw9tVPZhXzYKZTZ5N7HqIk=",
           "aarch64-darwin": "sha256-9g7YHg+TQNmAE07K6jKSSRUJ7IENUQMp2q54Mk2BbaY="
         },
-        "browserVersion": "26.4"
+        "browserVersion": "26.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2272/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2272/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2272/webkit-mac-15-arm64.zip"
+        }
       },
       "2276": {
         "hashes": {
@@ -761,7 +946,12 @@
           "aarch64-linux": "sha256-cmtY8869luovZnP5rWPcWXzz8g35PV//yWu1vW0PLVg=",
           "aarch64-darwin": "sha256-4w/0z0jjdkTspk6MK1V1jfqpLdWzqFeaU5G5gcpQVZU="
         },
-        "browserVersion": "26.4"
+        "browserVersion": "26.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2276/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2276/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2276/webkit-mac-15-arm64.zip"
+        }
       },
       "2284": {
         "hashes": {
@@ -769,7 +959,12 @@
           "aarch64-linux": "sha256-eJ5uYYkiqs0mRiIN9CgCQw2gcoAqDcYqbdLaaBr+dV8=",
           "aarch64-darwin": "sha256-4DA7+33Z1rAaRx6lJzo+1Vfs1EUSyCHDOqvQVpKvp6Y="
         },
-        "browserVersion": "26.4"
+        "browserVersion": "26.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2284/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2284/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2284/webkit-mac-15-arm64.zip"
+        }
       },
       "2285": {
         "hashes": {
@@ -777,7 +972,12 @@
           "aarch64-linux": "sha256-PogsXEzmdObYJYP278oUDaRjeer75nv2pZ+Fdw+pCvM=",
           "aarch64-darwin": "sha256-8fG3+AF0S+lWIhqYa0V0kAH4OBobiawhuiu9AELrbD0="
         },
-        "browserVersion": "26.4"
+        "browserVersion": "26.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2285/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2285/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2285/webkit-mac-15-arm64.zip"
+        }
       },
       "2287": {
         "hashes": {
@@ -785,7 +985,12 @@
           "aarch64-linux": "sha256-rOqppOyJVw4yd9dwWNVAPaoNmUSm6j5Qj8dWayYXwMI=",
           "aarch64-darwin": "sha256-383PHqwW+QoXL4qxXEE3ytbQVQ4rg2YDK+B+XvIfBmY="
         },
-        "browserVersion": "26.4"
+        "browserVersion": "26.4",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2287/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2287/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2287/webkit-mac-15-arm64.zip"
+        }
       },
       "2311": {
         "hashes": {
@@ -793,7 +998,12 @@
           "aarch64-linux": "sha256-vbMYXrpQX9r5Zcu6KnZwALhecjos53gzIy5bpiyoHWA=",
           "aarch64-darwin": "sha256-glVkYnthOFBPp1gZXTue9WwjP+oCgQpq6j9Mlm/bjmg="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2311/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2311/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2311/webkit-mac-15-arm64.zip"
+        }
       },
       "2317": {
         "hashes": {
@@ -801,7 +1011,12 @@
           "aarch64-linux": "sha256-AC5bab306Q21iaiKSv6YeUsuAeWa/tEuET4CknMn8ns=",
           "aarch64-darwin": "sha256-rhVAhjo91LFrCedx4KQ6N57Y5WvFXRbz8rhhYRzsCpI="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2317/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2317/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2317/webkit-mac-15-arm64.zip"
+        }
       },
       "2327": {
         "hashes": {
@@ -809,7 +1024,12 @@
           "aarch64-linux": "sha256-YwbPtmar7d9Og6vJwGhtP1PJ8zgsf3MD50KRqsCj5As=",
           "aarch64-darwin": "sha256-qM9jU52impiKZ0x0lfbfOrO+rFkrN10E90/J+rjteWM="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2327/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2327/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2327/webkit-mac-15-arm64.zip"
+        }
       },
       "2336": {
         "hashes": {
@@ -817,7 +1037,12 @@
           "aarch64-linux": "sha256-bb88cNKRo7P1nd/jkDf5JbW8TvlfYZcUuCOUrE6Ixvg=",
           "aarch64-darwin": "sha256-ARcl9y1PD+rzxUipixxGvsII2ah8vsDozAUHI0dSgA8="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2336/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2336/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2336/webkit-mac-15-arm64.zip"
+        }
       },
       "2342": {
         "hashes": {
@@ -825,7 +1050,12 @@
           "aarch64-linux": "sha256-bWsyOgGDNLk9GRbcLYxeogn3gM1hdXx0zzkpO0cyP6s=",
           "aarch64-darwin": "sha256-Ho34OWIEtBTfxc6CPq2Ug7IZuPsOM7TMHEzgFzhmQW0="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2342/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2342/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2342/webkit-mac-15-arm64.zip"
+        }
       },
       "2358": {
         "hashes": {
@@ -833,7 +1063,12 @@
           "aarch64-linux": "sha256-Iu3OKOKrPoRy32jLUtTe6G4sGBeHfyYJSFqtBtWDUHc=",
           "aarch64-darwin": "sha256-XJWmHoiYalN3wJNfpq8Zf2Rk/auYcup4pmTtlrI6yew="
         },
-        "browserVersion": "26.5"
+        "browserVersion": "26.5",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2358/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2358/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2358/webkit-mac-15-arm64.zip"
+        }
       },
       "2359": {
         "hashes": {
@@ -841,7 +1076,12 @@
           "aarch64-linux": "sha256-Zmg4b2IH+b9mvppvEydheaMlUpvF5sGNk7DYTTvl9xM=",
           "aarch64-darwin": "sha256-EjI0TdmQfB2qT2bBtbJFpsa+bplkJ5YyyVxNoOgsnZc="
         },
-        "browserVersion": "26.6"
+        "browserVersion": "26.6",
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2359/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2359/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2359/webkit-mac-15-arm64.zip"
+        }
       }
     },
     "ffmpeg": {
@@ -850,6 +1090,11 @@
           "x86_64-linux": "sha256-AWTiui+ccKHxsIaQSgc5gWCJT5gYwIWzAEqSuKgVqZU=",
           "aarch64-linux": "sha256-1mOKO2lcnlwLsC6ob//xKnKrCOp94pw8X14uBxCdj0Q=",
           "aarch64-darwin": "sha256-ky10UQj+XPVGpaWAPvKd51C5brml0y9xQ6iKcrxAMRc="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-linux.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-mac-arm64.zip"
         }
       }
     }

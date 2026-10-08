@@ -14,24 +14,18 @@
 {
   revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/firefox: unsupported system ${system}";
-  archSuffix =
-    {
-      x86_64-linux = "ubuntu-22.04";
-      aarch64-linux = "ubuntu-22.04-arm64";
-      aarch64-darwin = "mac-arm64";
-    }
-    .${system} or throwSystem;
 in
 stdenv.mkDerivation {
   name = "playwright-firefox-${revision}";
 
   src = fetchzip {
-    url = "https://cdn.playwright.dev/builds/firefox/${revision}/firefox-${archSuffix}.zip";
+    url = urls.${system} or throwSystem;
     stripRoot = !stdenv.hostPlatform.isDarwin;
     hash = hashes.${system} or throwSystem;
   };

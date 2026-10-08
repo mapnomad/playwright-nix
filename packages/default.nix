@@ -19,7 +19,7 @@ let
       in
       {
         inherit revision;
-        inherit (browserEntry) hashes;
+        inherit (browserEntry) hashes urls;
       }
       // (if browserEntry ? browserVersion then { inherit (browserEntry) browserVersion; } else { })
     ) coreRevisions;
