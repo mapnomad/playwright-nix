@@ -26,9 +26,9 @@
   nss,
 }:
 {
-  browserVersion,
   revision,
   hashes,
+  urls,
   ...
 }:
 let
@@ -36,13 +36,8 @@ let
   throwSystem = throw "playwright-browsers/chromium-headless-shell: unsupported system ${system}";
 
   src = fetchzip {
-    url =
-      {
-        x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-headless-shell-linux64.zip";
-        aarch64-linux = "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-headless-shell-linux-arm64.zip";
-        aarch64-darwin = "https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-headless-shell-mac-arm64.zip";
-      }
-      .${system} or throwSystem;
+    # scripts/sync.ts records the archive URL per system in packages.lock.
+    url = urls.${system} or throwSystem;
     stripRoot = false;
     hash = hashes.${system} or throwSystem;
   };
@@ -75,9 +70,10 @@ stdenv.mkDerivation {
 
   # Layout notes (playwright-core/src/server/registry/index.ts):
   #   linux-x64:   chrome-headless-shell-linux64/chrome-headless-shell
-  #   linux-arm64: chrome-linux/headless_shell
+  #   linux-arm64: chrome-headless-shell-linux-arm64/chrome-headless-shell (CFT, revision >= 1243)
+  #                chrome-linux/headless_shell (legacy build, revision < 1243)
   #   mac-arm64:   chrome-headless-shell-mac-arm64/chrome-headless-shell
-  # Both zips already contain the expected top-level directory (stripRoot=false),
+  # The zips already contain the expected top-level directory (stripRoot=false),
   # so they can be copied directly.
   buildPhase = ''
     cp -R . $out

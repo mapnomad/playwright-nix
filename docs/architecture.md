@@ -27,7 +27,7 @@ scripts/push-browsers.ts            # pushes closures to Cachix
 
 ## Packages Lockfile
 
-`packages.lock` maps tools to core versions, and core versions to browser revisions.
+`packages.lock` maps tools to core versions, and core versions to browser revisions. Each browser revision records the archive URL and hash per system. The Nix fetchers use these values and do not compute URLs. On each full run, `scripts/sync.ts` re-pins an archive when its locked URL differs from the current upstream URL.
 
 ```json
 {
@@ -36,7 +36,13 @@ scripts/push-browsers.ts            # pushes closures to Cachix
   },
   "coreSets": { "1.63.0-alpha-...": { "chromium": "1243" } },
   "browsers": {
-    "chromium": { "1243": { "hashes": { "x86_64-linux": "..." } } }
+    "chromium": {
+      "1243": {
+        "browserVersion": "153.0.8010.12",
+        "hashes": { "x86_64-linux": "sha256-..." },
+        "urls": { "x86_64-linux": "https://cdn.playwright.dev/builds/cft/..." }
+      }
+    }
   }
 }
 ```

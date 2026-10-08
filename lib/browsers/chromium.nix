@@ -41,44 +41,35 @@
   libxcb,
 }:
 {
-  browserVersion,
   revision,
   hashes,
+  urls,
   ...
 }:
 let
   inherit (stdenv.hostPlatform) system;
   throwSystem = throw "playwright-browsers/chromium: unsupported system ${system}";
 
-  # The CDN URL structure depends on the platform:
-  #   x86_64-linux uses Google's chrome-for-testing (CFT) path, keyed by browserVersion.
-  #   aarch64-linux uses playwright's own builds, keyed by revision.
-  #   aarch64-darwin uses CFT with the macOS arm64 archive layout.
+  # scripts/sync.ts records the archive URL per system in packages.lock.
+  url = urls.${system} or throwSystem;
+
   src = fetchzip {
     stripRoot = !stdenv.hostPlatform.isDarwin;
-    url =
-      {
-        x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-linux64.zip";
-        aarch64-linux = "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-linux-arm64.zip";
-        aarch64-darwin = "https://cdn.playwright.dev/builds/cft/${browserVersion}/mac-arm64/chrome-mac-arm64.zip";
-      }
-      .${system} or throwSystem;
+    inherit url;
     hash = hashes.${system} or throwSystem;
   };
 
-  # Playwright expects this directory name inside the browser dir, and launches this binary.
-  # See playwright-core/src/server/registry/index.ts:
+  # Playwright expects the archive's root directory inside the browser dir, and
+  # launches `<root>/chrome`. See playwright-core/src/server/registry/index.ts:
   #   EXECUTABLE_PATHS.chromium = {
   #     'linux-x64': ['chrome-linux64', 'chrome'],
-  #     'linux-arm64': ['chrome-linux', 'chrome'],
+  #     'linux-arm64': ['chrome-linux-arm64', 'chrome'],  // CFT builds, revision >= 1243
   #   }
+  # The legacy linux-arm64 archive (`chromium-linux-arm64.zip`, revision < 1243)
+  # has the root `chrome-linux`; CFT archives are named after their root.
+  archive = baseNameOf url;
   layoutDir =
-    {
-      x86_64-linux = "chrome-linux64";
-      aarch64-linux = "chrome-linux";
-      aarch64-darwin = "chrome-mac-arm64";
-    }
-    .${system} or throwSystem;
+    if archive == "chromium-linux-arm64.zip" then "chrome-linux" else lib.removeSuffix ".zip" archive;
 in
 stdenv.mkDerivation {
   name = "playwright-chromium-${revision}";
