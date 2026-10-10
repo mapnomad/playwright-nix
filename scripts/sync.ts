@@ -720,22 +720,34 @@ async function syncPython(
   const ghTarball = `https://github.com/microsoft/playwright-python/archive/v${version}.tar.gz`;
   const srcHash = prefetchFile(ghTarball, true);
 
+  // The driver comes from the PyPI wheels, which bundle it under
+  // playwright/driver/. cdn.playwright.dev no longer serves the driver zips
+  // of recent releases.
+  const releaseMeta = await fetchJSON(
+    `https://pypi.org/pypi/playwright/${version}/json`,
+  );
+  const wheelPatterns: Record<System, RegExp> = {
+    "x86_64-linux": /-manylinux[^-]*_x86_64\.whl$/,
+    "aarch64-linux": /-manylinux[^-]*_aarch64\.whl$/,
+    "aarch64-darwin": /-macosx_[^-]*_arm64\.whl$/,
+  };
   const driverHashes: Record<string, string> = {};
+  const driverUrls: Record<string, string> = {};
   for (const sys of SUPPORTED_SYSTEMS) {
-    const driverZipName = {
-      "x86_64-linux": "linux",
-      "aarch64-linux": "linux-arm64",
-      "aarch64-darwin": "mac-arm64",
-    }[sys];
-    const infix = driverVersion.includes("-") ? "next/" : "";
-    const driverUrl = `https://cdn.playwright.dev/builds/driver/${infix}playwright-${driverVersion}-${driverZipName}.zip`;
-    driverHashes[sys] = prefetchFetchzip(driverUrl, false);
+    const wheel = (releaseMeta.urls ?? []).find(
+      (u: any) =>
+        u.packagetype === "bdist_wheel" && wheelPatterns[sys].test(u.filename),
+    );
+    if (!wheel) die(`No ${sys} wheel for python playwright@${version}`);
+    driverHashes[sys] = prefetchFetchzip(wheel.url, false);
+    driverUrls[sys] = wheel.url;
   }
 
   lock.tools.python.versions[version] = {
     core: driverVersion,
     srcHash,
     driverHashes,
+    driverUrls,
   };
   if (isLatest) lock.tools.python.latest = version;
   log(`successfully locked python@${version}`);
