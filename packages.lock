@@ -2,7 +2,7 @@
   "version": 1,
   "tools": {
     "cli": {
-      "latest": "0.1.19",
+      "latest": "0.1.22",
       "versions": {
         "0.1.5": {
           "core": "1.60.0-alpha-1775237291000",
@@ -75,11 +75,17 @@
           "packageSha": "397ee39c83a651e1314cfb010b94e8a3aac11261",
           "srcHash": "sha256-pbv51ybubbjoIpKg0k7lfXfZ9Z+qdZI2lRhQeI+/mFA=",
           "npmDepsHash": "sha256-aY3i+sc2p8iQAEpfs+j/ifeBVmMpDDmwctEqOIDmCqI="
+        },
+        "0.1.22": {
+          "core": "1.64.0-alpha-1790635538000",
+          "packageSha": "b85c7a736bb473bf55b584e54a09ffa698d6d871",
+          "srcHash": "sha256-80xzHvf7BHGvoKvMdkGeNUsUrpZrpw5eryuQM8NKT/E=",
+          "npmDepsHash": "sha256-mGD7a/v1cx/xPGZo8nN3WA40mYGgF/KzMKiGbvUeX4E="
         }
       }
     },
     "mcp": {
-      "latest": "0.0.80",
+      "latest": "0.0.83",
       "versions": {
         "0.0.70": {
           "core": "1.60.0-alpha-1774999321000",
@@ -134,11 +140,17 @@
           "packageSha": "4c1fb03bad3bae379b0ae0e3d81d2660de56bd91",
           "srcHash": "sha256-pIePGuIxBaHqvP6QVLzGSef0uarYE+X/rs3LWZEU22U=",
           "npmDepsHash": "sha256-3T4XNZSUL5sbcHmWfn9Dfigu635FACVEZ/EHSKYu1+8="
+        },
+        "0.0.83": {
+          "core": "1.64.0-alpha-1790635538000",
+          "packageSha": "f183dad4a52965583e3cc1d59b88cdc279e2e57d",
+          "srcHash": "sha256-Pkm4kmnWgLX7wmPjL3hM3LWfkPwIVUoW3Wp/RHjX/hA=",
+          "npmDepsHash": "sha256-+uDq8oXkxQK4SNXBNZFtd4zrun1MGeSMeiLHViaNqHY="
         }
       }
     },
     "node": {
-      "latest": "1.63.0",
+      "latest": "1.64.0",
       "versions": {
         "1.59.1": {
           "core": "1.60.0-alpha-1774999321000",
@@ -175,11 +187,17 @@
           "packageSha": "1b025d7e20a026371cd5f98ba0cdce48892737c8",
           "packageHash": "sha256-ReNmDhL9ImD5vSohnIq8d7XyAbu2BDPevxW3EFwcClc=",
           "coreHash": "sha256-SCzo+agWqC0wfkc/98mk2C2Fs3kVLoq2nQtBOjo2KK0="
+        },
+        "1.64.0": {
+          "core": "1.64.0",
+          "packageSha": "606ecd8b34bac100db32561b6278ffd76e5eb3cd",
+          "packageHash": "sha256-oab8gvrvvcDT/VstO62szeYf5i/YXEjdQwT8nzaMfVk=",
+          "coreHash": "sha256-XVZn++vjNMJynDGjFYRDM4ECcmLZdrzg1oJbCS4JET8="
         }
       }
     },
     "dotnet": {
-      "latest": "1.62.0",
+      "latest": "1.63.0",
       "versions": {
         "1.59.0": {
           "core": "1.60.0-alpha-1774999321000",
@@ -196,11 +214,15 @@
         "1.62.0": {
           "core": "1.62.0",
           "packageHash": "sha256-LMP8wI/Bds5lcPIkppUH7uTVDw+gxPRoHqZ8bdcLxas="
+        },
+        "1.63.0": {
+          "core": "dotnet-1.63.0",
+          "packageHash": "sha256-uaxo5QYNoK1SQ2hEDiNUVvA4BZCnrhxyY6R6l7yxTuk="
         }
       }
     },
     "python": {
-      "latest": "1.62.0",
+      "latest": "1.63.0",
       "versions": {
         "1.58.0": {
           "core": "1.58.0",
@@ -251,11 +273,25 @@
             "aarch64-linux": "https://files.pythonhosted.org/packages/36/43/b4b18bdc87e1949568fffdcde3ff9a0456266b2d0c6d4432cc34d89ea6eb/playwright-1.62.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
             "aarch64-darwin": "https://files.pythonhosted.org/packages/af/1a/0bfbe9904350961f4dbb713f04342e40d548c5fc26c8157bd13617c81492/playwright-1.62.0-py3-none-macosx_11_0_arm64.whl"
           }
+        },
+        "1.63.0": {
+          "core": "1.63.0",
+          "srcHash": "sha256-RwIn+0EcHnStjORVFmT7gp4bGjl+qer1FgtI3+aPF2w=",
+          "driverHashes": {
+            "x86_64-linux": "sha256-9xZFnXnak06HHgs7c5mIIg5rxM0z3vSmKYOnM4RAacw=",
+            "aarch64-linux": "sha256-ziPxeNuIoeYIf5U3gCfFEk4ltXXdF81U4P21DZRveZc=",
+            "aarch64-darwin": "sha256-XQe3VPU3Iq92lI3xTXXq6opf/ZVJzNURIpxDleFwfgo="
+          },
+          "driverUrls": {
+            "x86_64-linux": "https://files.pythonhosted.org/packages/27/9c/103a5037789062bdab27c7dca53f3ca6b075b572ab2cd96eec825b3aec4e/playwright-1.63.0-py3-none-manylinux1_x86_64.whl",
+            "aarch64-linux": "https://files.pythonhosted.org/packages/f3/82/3d85505284c5a210f2da6c07b8f757524e79d1fba9cfdafe1eafb766ae59/playwright-1.63.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "aarch64-darwin": "https://files.pythonhosted.org/packages/f5/9a/948b930b1a8c4ee869e5a139a2b7747caa06aab56a3f09a2f0abdcbda221/playwright-1.63.0-py3-none-macosx_11_0_arm64.whl"
+          }
         }
       }
     },
     "camoufox": {
-      "latest": "0.5.6",
+      "latest": "0.5.8",
       "versions": {
         "0.4.11": {
           "pypi": "camoufox",
@@ -266,11 +302,16 @@
           "pypi": "camoufox",
           "url": "https://files.pythonhosted.org/packages/b7/8d/0a26fe6e06bec4521f1da81b9b6b3536343b627911b36be3da2b20c1f5fa/camoufox-0.5.6.tar.gz",
           "hash": "sha256-5K5z7JEzABJo7wdlU0/aDlRVCBKhmFDxQXVs1XL+k7k="
+        },
+        "0.5.8": {
+          "pypi": "camoufox",
+          "url": "https://files.pythonhosted.org/packages/81/00/ee6fa8cae640207626787ab4789d580a0d6803d4babbf07d25f059b142e9/camoufox-0.5.8.tar.gz",
+          "hash": "sha256-QK0jpelWSGLfJVCuU6HfMBa2Y9pSmWlP/9hZTsqJ4tI="
         }
       }
     },
     "camoufox-browsers": {
-      "latest": "152.0.4-beta.30",
+      "latest": "156.0.1-beta.36",
       "versions": {
         "135.0.1-beta.24": {
           "tag": "v135.0.1-beta.24",
@@ -289,6 +330,16 @@
               "suffix": "lin.arm64",
               "url": "https://github.com/daijro/camoufox/releases/download/v152.0.4-beta.30/camoufox-152.0.4-beta.30-lin.arm64.zip",
               "hash": "sha256-Gc/sa6PeDGfZQaC1qwrdZZmegVfQoa4cAIW/BGPwyIg="
+            }
+          }
+        },
+        "156.0.1-beta.36": {
+          "tag": "v156.0.1-beta.36",
+          "sources": {
+            "aarch64-linux": {
+              "suffix": "lin.arm64",
+              "url": "https://github.com/daijro/camoufox/releases/download/v156.0.1-beta.36/camoufox-156.0.1-beta.36-lin.arm64.zip",
+              "hash": "sha256-/qoIvQ4LoK7183dIf07/09aZ7zXzsFboIEE0mpUtefA="
             }
           }
         }
@@ -449,6 +500,27 @@
       "firefox": "1543",
       "webkit": "2359",
       "ffmpeg": "1011"
+    },
+    "1.64.0-alpha-1790635538000": {
+      "chromium": "1247",
+      "chromium-headless-shell": "1247",
+      "firefox": "1553",
+      "webkit": "2368",
+      "ffmpeg": "1011"
+    },
+    "1.64.0": {
+      "chromium": "1248",
+      "chromium-headless-shell": "1248",
+      "firefox": "1555",
+      "webkit": "2370",
+      "ffmpeg": "1013"
+    },
+    "dotnet-1.63.0": {
+      "chromium": "1243",
+      "chromium-headless-shell": "1243",
+      "firefox": "1543",
+      "webkit": "2359",
+      "ffmpeg": "1011"
     }
   },
   "browsers": {
@@ -599,15 +671,41 @@
       "1243": {
         "hashes": {
           "x86_64-linux": "sha256-ORdMu1e4Peolr8rdfvzgeaFhC8RgBipaOsAm7e3ZeqE=",
-          "aarch64-linux": "sha256-2JRLR1h189ApHRu77O6YmigQpqO2rXu3InM/qrzwX/c=",
+          "aarch64-linux": "sha256-AWXksACJGsDisnp9dAUcukDf/ruMCRCX9kZNNnE0R8Q=",
           "aarch64-darwin": "sha256-Zm7aHjwXL0kbucBiNoWxBM6rFdY0UmVIwcr/f8V31G8="
         },
         "browserVersion": "153.0.8010.12",
         "urls": {
           "x86_64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip",
-          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1243/chromium-linux-arm64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux-arm64/chrome-linux-arm64.zip",
           "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/mac-arm64/chrome-mac-arm64.zip"
         }
+      },
+      "1247": {
+        "hashes": {
+          "x86_64-linux": "sha256-w90ze/7xfsSlR2TYOK8SBpdjXvZ7hGsozdIgTqt2c9Y=",
+          "aarch64-linux": "sha256-qhqP75sbbpOkNgysdEMcd6j/J/40Ilc60ujXd9lmJnw=",
+          "aarch64-darwin": "sha256-ylwl5j+qfF8qWiYllqARYlm95dGags8VQws+kF1WNRY="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/linux-arm64/chrome-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/mac-arm64/chrome-mac-arm64.zip"
+        },
+        "browserVersion": "155.0.8059.12"
+      },
+      "1248": {
+        "hashes": {
+          "x86_64-linux": "sha256-ktGPsC2JiQp7cSmZAMU91/cii5vurBLf4CNgfM5BJtE=",
+          "aarch64-linux": "sha256-awvDm4aFRud/XzSeAuxONCclwzw8t+BZ8uCOFtWUEQw=",
+          "aarch64-darwin": "sha256-utaf65JcLlAXmXCxChPWi5YxbYQA77IYvgFNgW1ALtQ="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux-arm64/chrome-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/mac-arm64/chrome-mac-arm64.zip"
+        },
+        "browserVersion": "156.0.8078.4"
       }
     },
     "chromium-headless-shell": {
@@ -757,15 +855,41 @@
       "1243": {
         "hashes": {
           "x86_64-linux": "sha256-GLqqZOwtnJig+ZCIT8FYsIxZGSFTmRwLbqNXeSOdJXA=",
-          "aarch64-linux": "sha256-FiK+GGxiDHjwj/JeOh4FZPYYclogjAxfEDcpJ4Fjoqc=",
+          "aarch64-linux": "sha256-7DSqFxtk8Jf4/ktoW1MmH5vHs5LEp7jNvglYRoKXBm4=",
           "aarch64-darwin": "sha256-Elbpy5UDVndRzWRi8Nb391AhAAYl55PJ/3Fxz/RI/4I="
         },
         "browserVersion": "153.0.8010.12",
         "urls": {
           "x86_64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-headless-shell-linux64.zip",
-          "aarch64-linux": "https://cdn.playwright.dev/builds/chromium/1243/chromium-headless-shell-linux-arm64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux-arm64/chrome-headless-shell-linux-arm64.zip",
           "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/153.0.8010.12/mac-arm64/chrome-headless-shell-mac-arm64.zip"
         }
+      },
+      "1247": {
+        "hashes": {
+          "x86_64-linux": "sha256-P9veFZJxNZLxMjrqRZrxoQzVkqYY9j6tct3WqFOa9RY=",
+          "aarch64-linux": "sha256-kloXctvEfhD+iqqixz2CVXPM5XCgG1dt7jmKBiXOMPc=",
+          "aarch64-darwin": "sha256-giVK+ZJYrSkieHrm9NEfAK4nrhwE04udnkRg1irXIHg="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/linux-arm64/chrome-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/155.0.8059.12/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        },
+        "browserVersion": "155.0.8059.12"
+      },
+      "1248": {
+        "hashes": {
+          "x86_64-linux": "sha256-Qiz/wZA9AsYfqsEej5zfNxVcieu20J2m4XVFRA34Bi4=",
+          "aarch64-linux": "sha256-I7gSc1J6+KJbRiANE997p34vAQj62bF3CQn0LZFTsqA=",
+          "aarch64-darwin": "sha256-47hkERfQBDHWjD6VFwQNVCAXK1a+5uWKmNwialEESso="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux-arm64/chrome-headless-shell-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/cft/156.0.8078.4/mac-arm64/chrome-headless-shell-mac-arm64.zip"
+        },
+        "browserVersion": "156.0.8078.4"
       }
     },
     "firefox": {
@@ -911,6 +1035,32 @@
           "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1543/firefox-ubuntu-22.04-arm64.zip",
           "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1543/firefox-mac-arm64.zip"
         }
+      },
+      "1553": {
+        "hashes": {
+          "x86_64-linux": "sha256-EgPQCYcEpNoq7v/oqw8FlXEP6YHW8bKLKFWZmlFGqAI=",
+          "aarch64-linux": "sha256-sYFNWvOKiuu0LD83KS9qyH6pl7Dr0r3GLHOq7d4VT74=",
+          "aarch64-darwin": "sha256-nCrFLlomqUjZqLp9SlUbRqZ/LDNySoek67zRS77ds+I="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1553/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1553/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1553/firefox-mac-arm64.zip"
+        },
+        "browserVersion": "156.0"
+      },
+      "1555": {
+        "hashes": {
+          "x86_64-linux": "sha256-gZrt3+X2lwYoHs3LuUlE8JA8xkC7RpC1XXfYW66oQDk=",
+          "aarch64-linux": "sha256-nbql2473ChJDSanjCVuDqwI84SA2N5k8wD/TSBlrsa8=",
+          "aarch64-darwin": "sha256-Yo+y0ISDe8/iG2MsbmZklTcz+HjdblO2lunrpejauks="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/firefox/1555/firefox-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/firefox/1555/firefox-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/firefox/1555/firefox-mac-arm64.zip"
+        },
+        "browserVersion": "157.0"
       }
     },
     "webkit": {
@@ -1082,6 +1232,32 @@
           "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2359/webkit-ubuntu-22.04-arm64.zip",
           "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2359/webkit-mac-15-arm64.zip"
         }
+      },
+      "2368": {
+        "hashes": {
+          "x86_64-linux": "sha256-Wf0zOlqTEKWKe386KH4zcdgmHPtRjnqK3D2Tq8w8COM=",
+          "aarch64-linux": "sha256-PfT0B2RdCE+pRRjlwp4kwUAvwVXYr7tvQrH22osfDQw=",
+          "aarch64-darwin": "sha256-Ovm/UKwNdrycS2Q+3RuIJE3wd2zId4Sm3s0xSX3WnmA="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2368/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2368/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2368/webkit-mac-15-arm64.zip"
+        },
+        "browserVersion": "26.6"
+      },
+      "2370": {
+        "hashes": {
+          "x86_64-linux": "sha256-3D0Ok/FdRblc83ZrK61s7wYltS4Wpjo7Es6k4v75C9M=",
+          "aarch64-linux": "sha256-XY0jv6B0tNq3RzWVRwbYUQXaqXKS21vCngM/2Hbtb1M=",
+          "aarch64-darwin": "sha256-4Y1ojbFTuNZhwx8a8JXkEv6+vejvoATQrhL/wPGJdNI="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/webkit/2370/webkit-ubuntu-22.04.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/webkit/2370/webkit-ubuntu-22.04-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/webkit/2370/webkit-mac-15-arm64.zip"
+        },
+        "browserVersion": "27.2"
       }
     },
     "ffmpeg": {
@@ -1095,6 +1271,18 @@
           "x86_64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-linux.zip",
           "aarch64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-linux-arm64.zip",
           "aarch64-darwin": "https://cdn.playwright.dev/builds/ffmpeg/1011/ffmpeg-mac-arm64.zip"
+        }
+      },
+      "1013": {
+        "hashes": {
+          "x86_64-linux": "sha256-5+WbgtmcKkTaSurejqzkkglNI/0dW7ePxbltOeCiakI=",
+          "aarch64-linux": "sha256-OTpALfzK0fIjWHaywNVGWwwAaRncYElcV//En3/oOVI=",
+          "aarch64-darwin": "sha256-runukRDgLHIcOLqR/O8Kd3N7q73hXUc1YAPsdj3uqvs="
+        },
+        "urls": {
+          "x86_64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1013/ffmpeg-linux.zip",
+          "aarch64-linux": "https://cdn.playwright.dev/builds/ffmpeg/1013/ffmpeg-linux-arm64.zip",
+          "aarch64-darwin": "https://cdn.playwright.dev/builds/ffmpeg/1013/ffmpeg-mac-arm64.zip"
         }
       }
     }
