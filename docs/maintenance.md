@@ -28,3 +28,7 @@ Steps:
 1. **`sync-latest`**: Runs `nix run .#sync` and commits. Builds/pushes `x86_64-linux` closures.
 2. **`cache-arm`** & **`cache-darwin`**: Push `aarch64-linux` and `aarch64-darwin` closures.
 3. Pushes the commit to `main`.
+
+## Caching
+
+CI pushes and pins only the `cli` and `mcp` browser closures, one revision per system. These two tools usually share one browser set, so the cache holds about one set per system. The Cachix plan limits pinned storage, and each additional tool adds about 0.45 GiB per system. The `node`, `dotnet` and `python` packages fetch their browsers from `cdn.playwright.dev` at build time.
