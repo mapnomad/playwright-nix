@@ -61,7 +61,7 @@ jobs:
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Push and pin latest browser closures
-        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        run: nix run .#push-browsers -- playwright 1 cli mcp
         env:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
           FORCE: ${{ inputs.force_push && '1' || '0' }}
@@ -84,7 +84,7 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
           skipPush: true
       - name: Push and pin latest browser closures
-        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        run: nix run .#push-browsers -- playwright 1 cli mcp
         env:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
           FORCE: ${{ inputs.force_push && '1' || '0' }}
@@ -104,7 +104,7 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
           skipPush: true
       - name: Push and pin latest browser closures
-        run: nix run .#push-browsers -- playwright 1 cli dotnet mcp node python
+        run: nix run .#push-browsers -- playwright 1 cli mcp
         env:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
           FORCE: ${{ inputs.force_push && '1' || '0' }}

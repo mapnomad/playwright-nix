@@ -77,7 +77,7 @@ nix flake show github:mapnomad/playwright-nix
 
 ## Cachix
 
-Browser closures are cached at `https://playwright.cachix.org` and enabled by default.
+Browser closures are cached at `https://playwright.cachix.org` and enabled by default. The cache holds the latest `playwright-cli` and `playwright-mcp` browsers. Other tools fetch their browsers from `cdn.playwright.dev` at build time.
 
 ## Documentation
 
