@@ -31,4 +31,4 @@ Steps:
 
 ## Caching
 
-CI pushes and pins only the `cli` and `mcp` browser closures, one revision per system. These two tools usually share one browser set, so the cache holds about one set per system. The Cachix plan limits pinned storage, and each additional tool adds about 0.45 GiB per system. The `node`, `dotnet` and `python` packages fetch their browsers from `cdn.playwright.dev` at build time.
+CI pushes and pins only the `cli` and `mcp` browser closures, one revision per system. These two tools usually share one browser set, so the cache holds about one set per system. The Cachix plan limits pinned storage, and each additional distinct browser set adds about 0.45 GiB per system. Tools that use the same `playwright-core` version share one set. The `node`, `dotnet` and `python` packages fetch their browsers from `cdn.playwright.dev` at build time.
