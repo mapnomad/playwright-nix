@@ -150,7 +150,7 @@
       }
     },
     "node": {
-      "latest": "1.64.0",
+      "latest": "1.64.1",
       "versions": {
         "1.59.1": {
           "core": "1.60.0-alpha-1774999321000",
@@ -193,6 +193,12 @@
           "packageSha": "606ecd8b34bac100db32561b6278ffd76e5eb3cd",
           "packageHash": "sha256-oab8gvrvvcDT/VstO62szeYf5i/YXEjdQwT8nzaMfVk=",
           "coreHash": "sha256-XVZn++vjNMJynDGjFYRDM4ECcmLZdrzg1oJbCS4JET8="
+        },
+        "1.64.1": {
+          "core": "1.64.1",
+          "packageSha": "cfe490d941f992655948eee8fd4fd94e1c4234bf",
+          "packageHash": "sha256-k7Eo1TvHAhbsJfdP6BfKCk5Xy8kHfpS4NskLqpHlvcI=",
+          "coreHash": "sha256-kPILvJt8pGFIxFYs1yIoEG6zw3u7d7L+NGOaKtEy2vg="
         }
       }
     },
@@ -222,7 +228,7 @@
       }
     },
     "python": {
-      "latest": "1.63.0",
+      "latest": "1.64.0",
       "versions": {
         "1.58.0": {
           "core": "1.58.0",
@@ -286,6 +292,20 @@
             "x86_64-linux": "https://files.pythonhosted.org/packages/27/9c/103a5037789062bdab27c7dca53f3ca6b075b572ab2cd96eec825b3aec4e/playwright-1.63.0-py3-none-manylinux1_x86_64.whl",
             "aarch64-linux": "https://files.pythonhosted.org/packages/f3/82/3d85505284c5a210f2da6c07b8f757524e79d1fba9cfdafe1eafb766ae59/playwright-1.63.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
             "aarch64-darwin": "https://files.pythonhosted.org/packages/f5/9a/948b930b1a8c4ee869e5a139a2b7747caa06aab56a3f09a2f0abdcbda221/playwright-1.63.0-py3-none-macosx_11_0_arm64.whl"
+          }
+        },
+        "1.64.0": {
+          "core": "1.64.0-beta-1791568591000",
+          "srcHash": "sha256-BVgk+YS0CMVTmK1MQr3iEl+TQrGJXuhlYp4EG6Wd6PU=",
+          "driverHashes": {
+            "x86_64-linux": "sha256-JcZolK1UhtKvRKqvOyefukkwzlPjxtpMnyz667Ms2c0=",
+            "aarch64-linux": "sha256-uRJj/yB2tLE9taeIyu2GuOYh1mXnc5mWpCMmKvhh3iI=",
+            "aarch64-darwin": "sha256-lU8yVlglpJOcLCyuRQoyqq7nQ787tpNMbLN0xqWk+mY="
+          },
+          "driverUrls": {
+            "x86_64-linux": "https://files.pythonhosted.org/packages/65/8b/78c19b805d52323122385b9c3f000144608deac38635455978af6d14807b/playwright-1.64.0-py3-none-manylinux1_x86_64.whl",
+            "aarch64-linux": "https://files.pythonhosted.org/packages/7f/7e/c100ee3c59ff42e3199880d77e8f59f3230fdb0dd1ecfd21a0a203bb5a68/playwright-1.64.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "aarch64-darwin": "https://files.pythonhosted.org/packages/b4/b3/99f6c07a7f59adb3830e42cda2e2093dc1c2cbd1f69fe4393ead30c88257/playwright-1.64.0-py3-none-macosx_11_0_arm64.whl"
           }
         }
       }
@@ -521,6 +541,20 @@
       "firefox": "1543",
       "webkit": "2359",
       "ffmpeg": "1011"
+    },
+    "1.64.1": {
+      "chromium": "1248",
+      "chromium-headless-shell": "1248",
+      "firefox": "1555",
+      "webkit": "2370",
+      "ffmpeg": "1013"
+    },
+    "1.64.0-beta-1791568591000": {
+      "chromium": "1248",
+      "chromium-headless-shell": "1248",
+      "firefox": "1555",
+      "webkit": "2370",
+      "ffmpeg": "1013"
     }
   },
   "browsers": {
