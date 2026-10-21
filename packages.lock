@@ -203,7 +203,7 @@
       }
     },
     "dotnet": {
-      "latest": "1.63.0",
+      "latest": "1.64.0",
       "versions": {
         "1.59.0": {
           "core": "1.60.0-alpha-1774999321000",
@@ -224,6 +224,10 @@
         "1.63.0": {
           "core": "dotnet-1.63.0",
           "packageHash": "sha256-uaxo5QYNoK1SQ2hEDiNUVvA4BZCnrhxyY6R6l7yxTuk="
+        },
+        "1.64.0": {
+          "core": "dotnet-1.64.0",
+          "packageHash": "sha256-rdREIPR6bsEWtF07Z5FHfTHJJJlZ75SC6eIWtYupPHc="
         }
       }
     },
@@ -550,6 +554,13 @@
       "ffmpeg": "1013"
     },
     "1.64.0-beta-1791568591000": {
+      "chromium": "1248",
+      "chromium-headless-shell": "1248",
+      "firefox": "1555",
+      "webkit": "2370",
+      "ffmpeg": "1013"
+    },
+    "dotnet-1.64.0": {
       "chromium": "1248",
       "chromium-headless-shell": "1248",
       "firefox": "1555",
