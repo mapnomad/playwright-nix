@@ -203,7 +203,7 @@
       }
     },
     "dotnet": {
-      "latest": "1.64.0",
+      "latest": "1.64.1",
       "versions": {
         "1.59.0": {
           "core": "1.60.0-alpha-1774999321000",
@@ -228,11 +228,15 @@
         "1.64.0": {
           "core": "dotnet-1.64.0",
           "packageHash": "sha256-rdREIPR6bsEWtF07Z5FHfTHJJJlZ75SC6eIWtYupPHc="
+        },
+        "1.64.1": {
+          "core": "dotnet-1.64.1",
+          "packageHash": "sha256-00PEzMOcVKdgo/f5suUYwnkp1nLNfn0YHMTAoe2dcZ4="
         }
       }
     },
     "python": {
-      "latest": "1.64.0",
+      "latest": "1.64.1",
       "versions": {
         "1.58.0": {
           "core": "1.58.0",
@@ -310,6 +314,20 @@
             "x86_64-linux": "https://files.pythonhosted.org/packages/65/8b/78c19b805d52323122385b9c3f000144608deac38635455978af6d14807b/playwright-1.64.0-py3-none-manylinux1_x86_64.whl",
             "aarch64-linux": "https://files.pythonhosted.org/packages/7f/7e/c100ee3c59ff42e3199880d77e8f59f3230fdb0dd1ecfd21a0a203bb5a68/playwright-1.64.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
             "aarch64-darwin": "https://files.pythonhosted.org/packages/b4/b3/99f6c07a7f59adb3830e42cda2e2093dc1c2cbd1f69fe4393ead30c88257/playwright-1.64.0-py3-none-macosx_11_0_arm64.whl"
+          }
+        },
+        "1.64.1": {
+          "core": "1.64.0-beta-1791568591000",
+          "srcHash": "sha256-5rHqGa4LwGJOTKkASpLDBsy+T+nJNPOGqzQ5QmRWf8c=",
+          "driverHashes": {
+            "x86_64-linux": "sha256-sTtc1RoCNu5LqJVO01cBzZdyuOd/sQkxMRJ46rBQ7Es=",
+            "aarch64-linux": "sha256-2EuPMOlW9GXC4lFMLt/ei7uJfsY18ZcNsSBdCI8IB0E=",
+            "aarch64-darwin": "sha256-9Qk8XafBQs4RYmTHtave8QGb1OziEOmcZu9nIE43mEw="
+          },
+          "driverUrls": {
+            "x86_64-linux": "https://files.pythonhosted.org/packages/15/b9/e481a34572933b5cf179d5637c98da488c732ee339dff5b73a0624d2e42b/playwright-1.64.1-py3-none-manylinux1_x86_64.whl",
+            "aarch64-linux": "https://files.pythonhosted.org/packages/0c/11/545f25e47ec54e1e8a2892ef9994fc2b298f909ab37b88578e3a1f87ac2e/playwright-1.64.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "aarch64-darwin": "https://files.pythonhosted.org/packages/72/4f/572bbbe60a5787ca61a84bad934c3ce19c08c2bc9c0e9781bf0d99cad1a6/playwright-1.64.1-py3-none-macosx_11_0_arm64.whl"
           }
         }
       }
@@ -561,6 +579,13 @@
       "ffmpeg": "1013"
     },
     "dotnet-1.64.0": {
+      "chromium": "1248",
+      "chromium-headless-shell": "1248",
+      "firefox": "1555",
+      "webkit": "2370",
+      "ffmpeg": "1013"
+    },
+    "dotnet-1.64.1": {
       "chromium": "1248",
       "chromium-headless-shell": "1248",
       "firefox": "1555",
