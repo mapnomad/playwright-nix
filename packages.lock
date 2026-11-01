@@ -345,7 +345,7 @@
       }
     },
     "camoufox": {
-      "latest": "0.5.8",
+      "latest": "0.5.9",
       "versions": {
         "0.4.11": {
           "pypi": "camoufox",
@@ -361,11 +361,16 @@
           "pypi": "camoufox",
           "url": "https://files.pythonhosted.org/packages/81/00/ee6fa8cae640207626787ab4789d580a0d6803d4babbf07d25f059b142e9/camoufox-0.5.8.tar.gz",
           "hash": "sha256-QK0jpelWSGLfJVCuU6HfMBa2Y9pSmWlP/9hZTsqJ4tI="
+        },
+        "0.5.9": {
+          "pypi": "camoufox",
+          "url": "https://files.pythonhosted.org/packages/f6/aa/d0a0a3eb95a5b22c4b2148cff5bf5eae76acad06bca36958ab1713fba9f2/camoufox-0.5.9.tar.gz",
+          "hash": "sha256-jXHxyNNjI+4NLqH9TG3j7kp835W/KWuQuW2QltwvgCw="
         }
       }
     },
     "camoufox-browsers": {
-      "latest": "156.0.1-beta.36",
+      "latest": "158.0.1-beta.41",
       "versions": {
         "135.0.1-beta.24": {
           "tag": "v135.0.1-beta.24",
@@ -394,6 +399,16 @@
               "suffix": "lin.arm64",
               "url": "https://github.com/daijro/camoufox/releases/download/v156.0.1-beta.36/camoufox-156.0.1-beta.36-lin.arm64.zip",
               "hash": "sha256-/qoIvQ4LoK7183dIf07/09aZ7zXzsFboIEE0mpUtefA="
+            }
+          }
+        },
+        "158.0.1-beta.41": {
+          "tag": "v158.0.1-beta.41",
+          "sources": {
+            "aarch64-linux": {
+              "suffix": "lin.arm64",
+              "url": "https://github.com/daijro/camoufox/releases/download/v158.0.1-beta.41/camoufox-158.0.1-beta.41-lin.arm64.zip",
+              "hash": "sha256-RvujGuE2ua1txAA9tYmbmwqRTr0mtmgF9aeHNQUWU6g="
             }
           }
         }
